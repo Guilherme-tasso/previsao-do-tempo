@@ -1,0 +1,249 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 16px;
+    background-color: #333;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    transition: background-image 1s ease-in-out;
+    color: #fff;
+}
+
+.larg-box {
+    /* rgba em vez de opacity, para o texto não ficar transparente */
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(6px);
+    border-radius: 25px;
+    padding: 20px;
+    width: 100%;
+    max-width: 420px;
+    position: relative;
+}
+
+.input-container {
+    position: relative;
+    display: flex;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.input-city {
+    flex: 1;
+    min-width: 0;
+    border: none;
+    outline: none;
+    padding: 10px 15px;
+    border-radius: 25px;
+    font-size: 18px;
+    background-color: #7c7c7c2b;
+    color: #fff;
+    transition: background-color 0.2s;
+}
+
+.input-city::placeholder {
+    color: #bbb;
+}
+
+.input-city:focus {
+    background-color: #7c7c7c50;
+}
+
+.search-button {
+    border: none;
+    padding: 10px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: #7c7c7c2b;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.search-button:hover,
+.search-button:focus-visible {
+    background-color: #7c7c7c50;
+}
+
+.search {
+    width: 22px;
+    height: 22px;
+    display: block;
+}
+
+.suggestions-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 56px;
+    max-height: 200px;
+    overflow-y: auto;
+    background: rgba(0, 0, 0, 0.95);
+    border-radius: 0 0 20px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    margin-top: 2px;
+    z-index: 10;
+}
+
+.suggestion-item {
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 16px;
+    border-top: 1px solid #7c7c7c2b;
+}
+
+.suggestion-item:first-child {
+    border-top: none;
+}
+
+.suggestion-item:hover {
+    background-color: #7c7c7c50;
+}
+
+.media-box {
+    margin-top: 20px;
+}
+
+.city {
+    font-size: 22px;
+    font-weight: 300;
+}
+
+.time {
+    font-size: 48px;
+    margin-top: 10px;
+    font-weight: 700;
+}
+
+.small-box {
+    display: flex;
+    align-items: center;
+}
+
+.img {
+    width: 60px;
+    height: 60px;
+}
+
+.forecast {
+    margin-left: 8px;
+    text-transform: capitalize;
+}
+
+.details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 18px;
+    margin-top: 10px;
+    color: #ddd;
+}
+
+.error-message {
+    color: #ffb3b3;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.forecast-5day {
+    margin-top: 25px;
+}
+
+.forecast-5day h3 {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.forecast-cards {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+}
+
+.forecast-card {
+    background-color: #7c7c7c2b;
+    border-radius: 15px;
+    padding: 8px 4px;
+    text-align: center;
+}
+
+.forecast-day {
+    font-size: 14px;
+    text-transform: capitalize;
+}
+
+.forecast-card img {
+    width: 40px;
+    height: 40px;
+}
+
+.forecast-temps {
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+.actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.location-button,
+.unit-toggle {
+    border: none;
+    padding: 8px 14px;
+    border-radius: 20px;
+    background-color: #7c7c7c2b;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.location-button:hover,
+.unit-toggle:hover {
+    background-color: #7c7c7c50;
+}
+
+.loading {
+    width: 36px;
+    height: 36px;
+    margin: 20px auto 0;
+    border: 4px solid #7c7c7c50;
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+@media (max-width: 400px) {
+    .forecast-cards {
+        gap: 4px;
+    }
+
+    .forecast-temps {
+        font-size: 11px;
+    }
+}

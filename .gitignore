@@ -1,0 +1,12 @@
+# Chave da API (não publicar)
+config.js
+
+# Backup das imagens originais em alta resolução
+img-originais/
+
+# Sistema / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Aplicativo de previsão do tempo com busca de cidades, previsão de 5 dias e fundo dinâmico.">
+    <title>Clima e Tempo</title>
+    <link rel="icon" href="https://openweathermap.org/img/wn/02d.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="config.js" defer></script>
+    <script src="scripts.js" defer></script>
+</head>
+
+<body>
+    <main class="larg-box">
+        <div class="input-container">
+            <input class="input-city" type="text" placeholder="Digite o nome da cidade" aria-label="Nome da cidade" autocomplete="off">
+            <button class="search-button" type="button" aria-label="Buscar">
+                <svg class="search" viewBox="0 0 24 24" aria-hidden="true">
+                    <circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/>
+                    <line x1="16.5" y1="16.5" x2="21" y2="21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </button>
+            <div class="suggestions-list"></div>
+        </div>
+
+        <section class="media-box" aria-live="polite">
+            <div class="error-message hidden">Cidade não encontrada.</div>
+
+            <h2 class="city">Pesquise uma cidade</h2>
+            <p class="time">--°C</p>
+
+            <div class="small-box">
+                <img class="img" src="https://openweathermap.org/img/wn/04n@2x.png" alt="Ícone do tempo">
+                <p class="forecast">--</p>
+            </div>
+
+            <div class="details">
+                <p class="feels-like">Sensação --</p>
+                <p class="humidity">Umidade --%</p>
+                <p class="wind">Vento --</p>
+            </div>
+        </section>
+
+        <div id="loading" class="loading hidden" aria-label="Carregando"></div>
+
+        <section class="forecast-5day hidden">
+            <h3>Próximos dias</h3>
+            <div class="forecast-cards" id="forecast-cards"></div>
+        </section>
+
+        <div class="actions">
+            <button class="location-button" type="button">📍 Minha localização</button>
+            <button class="unit-toggle" type="button">Mudar para °F</button>
+        </div>
+    </main>
+</body>
+
+</html>
